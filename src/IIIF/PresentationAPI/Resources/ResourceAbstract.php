@@ -247,8 +247,9 @@ abstract class ResourceAbstract implements ResourceInterface
     /**
      * {@inheritDoc}
      * @see \IIIF\PresentationAPI\Resources\ResourceInterface::getDescriptions()
+     * @return string[]
      */
-    public function getDescriptions(): string
+    public function getDescriptions(): array
     {
         return $this->descriptions;
     }
