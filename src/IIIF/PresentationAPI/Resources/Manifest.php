@@ -24,10 +24,6 @@
 namespace IIIF\PresentationAPI\Resources;
 
 use IIIF\PresentationAPI\Parameters\Identifier;
-use IIIF\PresentationAPI\Resources\AnnotationList;
-use IIIF\PresentationAPI\Resources\Range;
-use IIIF\PresentationAPI\Resources\ResourceAbstract;
-use IIIF\PresentationAPI\Resources\Sequence;
 use IIIF\Utils\ArrayCreator;
 use IIIF\Utils\Validator;
 
@@ -45,53 +41,49 @@ class Manifest extends ResourceAbstract {
 
     /**
      * Add a sequence to the manifest.
-     *
-     * @param \IIIF\PresentationAPI\Resources\Sequence $sequence
      */
-    public function addSequence(Sequence $sequence)
+    public function addSequence(Sequence $sequence): Manifest
     {
         if (count($this->sequences) >= 1) {
             $sequence->returnOnlyMemberData();
         }
         array_push($this->sequences, $sequence);
+        return $this;
     }
 
     /**
      * Get all of the sequences.
      *
-     * @return array
+     * @return Sequence[]
      */
-    public function getSequences()
+    public function getSequences(): array
     {
         return $this->sequences;
     }
 
     /**
      * Add a range.
-     *
-     * @param \IIIF\PresentationAPI\Resources\Range $range
      */
-    public function addStructure(Range $range)
+    public function addStructure(Range $range): Manifest
     {
         array_push($this->structures, $range);
+        return $this;
     }
 
     /**
      * Get the structures (ranges).
      *
-     * @return array
+     * @return Range[]
      */
-    public function getStructures()
+    public function getStructures(): array
     {
         return $this->structures;
     }
 
     /**
      * Make sure the sequence is valid.
-     *
-     * @param \IIIF\PresentationAPI\Resources\Sequence $sequence
      */
-    public function validateSequence(Sequence $sequence)
+    public function validateSequence(Sequence $sequence): Manifest
     {
         $classname = '\IIIF\PresentationAPI\Resources\Sequence';
         $exclusions = array(
@@ -104,14 +96,13 @@ class Manifest extends ResourceAbstract {
         $message = "A Sequence after the first one embedded within a Manifest should only contain an id, type and label";
         Validator::shouldNotContainItems($sequence, $classname, $exclusions, $message);
         Validator::shouldContainItems($sequence, array('getLabels'), 'Multiple Sequences within a Manifest must contain a label');
+        return $this;
     }
 
     /**
      * Make sure the annotation list is valid.
-     *
-     * @param AnnotationList $annotationlist
      */
-    public function validateAnnotationList(AnnotationList $annotationlist)
+    public function validateAnnotationList(AnnotationList $annotationlist): Manifest
     {
         $classname = '\IIIF\PresentationAPI\Resources\AnnotationList';
         $exclusions = array(
@@ -123,6 +114,7 @@ class Manifest extends ResourceAbstract {
         );
         $message = "An Annotation List must not be embedded in a Manifest";
         Validator::shouldNotContainItems($annotationlist, $classname, $exclusions, $message);
+        return $this;
     }
 
     /**

@@ -81,16 +81,16 @@ class ArrayCreator {
     private static function checkToArray(&$value)
     {
         if (is_array($value)) {
-          foreach($value as &$class) {
-            if (method_exists($class, "toArray")) {
-              $class = $class->toArray();
+            foreach($value as &$class) {
+                if ($class !== null && method_exists($class, "toArray")) {
+                    $class = $class->toArray();
+                }
             }
-          }
         }
         else {
-         if (method_exists($value, "toArray")) {
-           $value = $value->toArray();
-         }
+            if ($value !== null && method_exists($value, "toArray")) {
+                $value = $value->toArray();
+            }
         }
 
         return $value;
