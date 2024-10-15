@@ -76,21 +76,17 @@ class ArrayCreator {
 
     /**
      * Check the array to see if subclasses need to have arrays generated.
-     * @param array $value
      */
-    private static function checkToArray(&$value)
+    private static function checkToArray(mixed &$value): mixed
     {
         if (is_array($value)) {
-            foreach($value as &$class) {
-                if ($class !== null && method_exists($class, "toArray")) {
+            foreach ($value as &$class) {
+                if (is_object($class) && method_exists($class, 'toArray')) {
                     $class = $class->toArray();
                 }
             }
-        }
-        else {
-            if ($value !== null && method_exists($value, "toArray")) {
-                $value = $value->toArray();
-            }
+        } elseif (is_object($value) && method_exists($value, 'toArray')) {
+            $value = $value->toArray();
         }
 
         return $value;
