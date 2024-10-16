@@ -38,9 +38,10 @@ abstract class PropertyAbstract implements PropertyInterface {
    * @see \IIIF\PresentationAPI\Properties\PropertyInterface::setID()
    * @param string
    */
-  public function setID($id)
+  public function setID($id): static
   {
     $this->id = $id;
+    return $this;
   }
 
   /**

@@ -46,9 +46,10 @@ class Annotation extends ResourceAbstract {
      *
      * @param string $motivation
      */
-    public function setMotivation($motivation)
+    public function setMotivation($motivation): static
     {
         $this->motivation = $motivation;
+        return $this;
     }
 
     /**
@@ -66,9 +67,10 @@ class Annotation extends ResourceAbstract {
      *
      * @param \IIIF\PresentationAPI\Resources\Content $content
      */
-    public function setContent(Content $content)
+    public function setContent(Content $content): static
     {
         $this->content = $content;
+        return $this;
     }
 
     /**
@@ -86,9 +88,10 @@ class Annotation extends ResourceAbstract {
      *
      * @param string $on
      */
-    public function setOn($on)
+    public function setOn($on): static
     {
         $this->on = $on;
+        return $this;
     }
 
     /**

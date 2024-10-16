@@ -50,9 +50,10 @@ class Canvas extends ResourceAbstract {
      *
      * @param int $width
      */
-    public function setWidth($width)
+    public function setWidth($width): static
     {
         $this->width = $width;
+        return $this;
     }
 
     /**
@@ -70,9 +71,10 @@ class Canvas extends ResourceAbstract {
      *
      * @param int $height
      */
-    public function setHeight($height)
+    public function setHeight($height): static
     {
         $this->height = $height;
+        return $this;
     }
 
     /**
@@ -90,9 +92,10 @@ class Canvas extends ResourceAbstract {
      *
      * @param \IIIF\PresentationAPI\Resources\Annotation $annotation
      */
-    public function addImage(Annotation $annotation)
+    public function addImage(Annotation $annotation): static
     {
       array_push($this->images, $annotation);
+      return $this;
     }
 
     /**
@@ -110,9 +113,10 @@ class Canvas extends ResourceAbstract {
      *
      * @param \IIIF\PresentationAPI\Resources\AnnotationList $otherContent
      */
-    public function addOtherContent(AnnotationList $otherContent)
+    public function addOtherContent(AnnotationList $otherContent): static
     {
         array_push($this->otherContents, $otherContent);
+        return $this;
     }
 
     /**
@@ -128,7 +132,7 @@ class Canvas extends ResourceAbstract {
     /**
      * Configure the proper dimensions when the width and height are not set.
      */
-    public function configureDimensions()
+    public function configureDimensions(): static
     {
         // If the canvas width is not set, then look for the largest width within the contained images
         if (empty($this->getWidth())) {
@@ -160,6 +164,7 @@ class Canvas extends ResourceAbstract {
                 $this->setHeight($largestHeight * 2);
             }
          }
+         return $this;
     }
 
 

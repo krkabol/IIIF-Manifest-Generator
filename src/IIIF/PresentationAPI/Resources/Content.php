@@ -43,9 +43,10 @@ class Content extends ResourceAbstract {
      *
      * @param string $type
      */
-    public function setType($type)
+    public function setType($type): static
     {
         $this->type = $type;
+        return $this;
     }
 
     /**
@@ -53,9 +54,10 @@ class Content extends ResourceAbstract {
      *
      * @param string $format
      */
-    public function setFormat($format)
+    public function setFormat($format): static
     {
         $this->format = $format;
+        return $this;
     }
 
     /**
@@ -73,9 +75,10 @@ class Content extends ResourceAbstract {
      *
      * @param int $width
      */
-    public function setWidth($width)
+    public function setWidth($width): static
     {
         $this->width = $width;
+        return $this;
     }
 
     /**
@@ -93,9 +96,10 @@ class Content extends ResourceAbstract {
      *
      * @param int $height
      */
-    public function setHeight($height)
+    public function setHeight($height): static
     {
         $this->height = $height;
+        return $this;
     }
 
     /**
@@ -113,9 +117,10 @@ class Content extends ResourceAbstract {
      *
      * @param string $chars
      */
-    public function setChars($chars)
+    public function setChars($chars): static
     {
         $this->chars = $chars;
+        return $this;
     }
 
     /**

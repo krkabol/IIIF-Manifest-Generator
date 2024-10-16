@@ -46,17 +46,16 @@ class Sequence extends ResourceAbstract {
      *
      * @param string
      */
-    public function setStartCanvas($startCanvas)
+    public function setStartCanvas($startCanvas): static
     {
         $this->startCanvas = $startCanvas;
+        return $this;
     }
 
     /**
      * Get the startCanvas.
-     *
-     * @return string
      */
-    public function getStartCanvas()
+    public function getStartCanvas(): string
     {
         return $this->startCanvas;
     }
@@ -66,9 +65,10 @@ class Sequence extends ResourceAbstract {
      *
      * @param \IIIF\PresentationAPI\Resources\Canvas $canvas
      */
-    public function addCanvas($canvas)
+    public function addCanvas($canvas): static
     {
         array_push($this->canvases, $canvas);
+        return $this;
     }
 
     public function getCanvases()

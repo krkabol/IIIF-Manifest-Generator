@@ -23,8 +23,6 @@
 
 namespace IIIF\PresentationAPI\Links;
 
-use IIIF\PresentationAPI\Links\LinkInterface;
-
 /**
  * Abstract implementation of Link properties
  *
@@ -40,11 +38,11 @@ abstract class LinkAbstract implements LinkInterface {
      * {@inheritDoc}
      *
      * @see \IIIF\PresentationAPI\Properties\PropertyInterface::setID()
-     * @param string
      */
-    public function setID($id)
+    public function setID($id): static
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
@@ -63,9 +61,10 @@ abstract class LinkAbstract implements LinkInterface {
      * @see \IIIF\PresentationAPI\Links\LinkInterface::setFormat()
      * @param string $format
      */
-    public function setFormat($format)
+    public function setFormat($format): static
     {
         $this->format = $format;
+        return $this;
     }
 
     /**
@@ -84,9 +83,10 @@ abstract class LinkAbstract implements LinkInterface {
      * @see \IIIF\PresentationAPI\Links\LinkInterface::setProfile()
      * @param string $format
      */
-    public function setProfile($profile)
+    public function setProfile($profile): static
     {
         $this->profile = $profile;
+        return $this;
     }
 
     /**
@@ -105,9 +105,10 @@ abstract class LinkAbstract implements LinkInterface {
      * @see \IIIF\PresentationAPI\Links\LinkInterface::setLabel()
      * @param string $label
      */
-    public function setLabel($label)
+    public function setLabel($label): static
     {
         $this->label = $label;
+        return $this;
     }
 
     /**

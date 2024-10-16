@@ -41,9 +41,10 @@ class Service extends LinkAbstract {
      *
      * @param string $context
      */
-    public function setContext($context)
+    public function setContext($context): static
     {
         $this->context = $context;
+        return $this;
     }
 
     /**

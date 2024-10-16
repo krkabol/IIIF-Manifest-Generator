@@ -350,7 +350,7 @@ abstract class ResourceAbstract implements ResourceInterface
      * Get the metadata
      * @return array
      */
-    public function getMetadata(): array
+    public function getMetadata()
     {
         return $this->metadata;
     }
