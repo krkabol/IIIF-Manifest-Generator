@@ -55,7 +55,7 @@ class Sequence extends ResourceAbstract {
     /**
      * Get the startCanvas.
      */
-    public function getStartCanvas(): string
+    public function getStartCanvas(): ?string
     {
         return $this->startCanvas;
     }
