@@ -492,7 +492,7 @@ abstract class ResourceAbstract implements ResourceInterface
     /**
      * Get the viewing direction.
      */
-    public function getViewingDirection(): string
+    public function getViewingDirection(): ?string
     {
         return $this->viewingdirection;
     }
