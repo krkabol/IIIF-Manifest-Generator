@@ -76,6 +76,7 @@ class ArrayCreator {
 
     /**
      * Check the array to see if subclasses need to have arrays generated.
+     * @param array $value
      */
     private static function checkToArray(mixed &$value): mixed
     {
